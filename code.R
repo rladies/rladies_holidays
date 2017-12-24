@@ -14,7 +14,7 @@ links <- c("https://pbs.twimg.com/media/DRK_e7iWkAAjdyB.jpg",
 
 library("magrittr")
 
-
+# to get squared image with a purple border
 format_image <- function(image){
   info <- magick::image_info(image)
   
@@ -40,7 +40,7 @@ format_image <- function(image){
   image
 }
 
-
+# to save images
 save_image <- function(link, name){
   magick::image_read(link) %>%
     format_image() %>%
@@ -51,7 +51,7 @@ purrr::walk2(links,
            seq_along(links),
            save_image)
 
-
+# appending cols and then rows
 no_rows <- 3
 no_cols <- 4
 
